@@ -56,11 +56,12 @@ def main():
         print("Nenhum modelo válido selecionado")
         return
     # Compila o modelo
-    model.compile(optimizer="adam",
+    model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.001),
                   loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 
     # Treina o modelo
-    model.fit(train_images, train_labels, epochs=5, batch_size=32)
+    model.fit(train_images, train_labels, epochs=5,
+              batch_size=32)
 
     # Avalia o modelo
     test_loss, test_acc = model.evaluate(test_images, test_labels)
