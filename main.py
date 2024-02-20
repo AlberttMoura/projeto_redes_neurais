@@ -60,7 +60,7 @@ def main():
                   loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 
     # Treina o modelo
-    model.fit(train_images, train_labels, epochs=5)
+    model.fit(train_images, train_labels, epochs=5, batch_size=32)
 
     # Avalia o modelo
     test_loss, test_acc = model.evaluate(test_images, test_labels)
