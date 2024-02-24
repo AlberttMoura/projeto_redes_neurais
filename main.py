@@ -25,8 +25,8 @@ def main():
 
         # Modelo MLP
         model = keras.Sequential([
-            keras.layers.Dense(512, activation="relu",
-                               input_shape=(28 * 28,)),
+            keras.layers.Dropout(0.2, input_shape=(28 * 28,)),
+            keras.layers.Dense(512, activation="relu"),
             keras.layers.Dense(256, activation="relu"),
             keras.layers.Dense(128, activation="relu"),
             keras.layers.Dense(10, activation="softmax")
@@ -43,8 +43,8 @@ def main():
 
         # Modelo Convolucional
         model = keras.Sequential([
-            keras.layers.Conv2D(32, (3, 3), activation="relu",
-                                input_shape=(28, 28, 1)),
+            keras.layers.Dropout(0.2, input_shape=(28 * 28, 1)),
+            keras.layers.Conv2D(32, (3, 3), activation="relu"),
             keras.layers.MaxPooling2D((2, 2)),
             keras.layers.Conv2D(64, (3, 3), activation="relu"),
             keras.layers.MaxPooling2D((2, 2)),
